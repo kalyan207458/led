@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Compare TVs - Sonovision</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SONOVISION
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/brands">Brands</a>
+        <a href="/compare">Compare</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Compare TVs</h1>
+
+    <p class="subtitle">
+        Select up to 3 TVs to compare their features.
+    </p>
+
+
+    <form method="POST">
+
+        <div class="compare-selection">
+
+            {% for tv in tvs %}
+
+            <label class="compare-option">
+
+                <input
+                    type="checkbox"
+                    name="tv_ids"
+                    value="{{ tv.id }}"
+                >
+
+                <span>
+                    {{ tv.brand }} - {{ tv.model }}
+                </span>
+
+            </label>
+
+            {% endfor %}
+
+        </div>
+
+
+        <button type="submit"
+                class="btn">
+            Compare Selected TVs
+        </button>
+
+    </form>
+
+
+    {% if selected_tvs %}
+
+    <h2 class="section-title">
+        Comparison Result
+    </h2>
+
+
+    <div class="comparison-table">
+
+        <table>
+
+            <tr>
+
+                <th>Feature</th>
+
+                {% for tv in selected_tvs %}
+
+                <th>
+                    {{ tv.brand }}<br>
+                    {{ tv.model }}
+                </th>
+
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Price</td>
+
+                {% for tv in selected_tvs %}
+                <td>
+                    ₹{{ "{:,}".format(tv.price) }}
+                </td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Screen Size</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.size }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Resolution</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.resolution }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Display</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.display }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Refresh Rate</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.refresh_rate }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Processor</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.processor }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>HDR</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.hdr }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Sound</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.sound }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Smart TV</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.smart_tv }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Dolby</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.dolby }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>HDMI Ports</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.hdmi }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>USB Ports</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.usb }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Wi-Fi</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.wifi }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Bluetooth</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.bluetooth }}</td>
+                {% endfor %}
+
+            </tr>
+
+
+            <tr>
+                <td>Warranty</td>
+
+                {% for tv in selected_tvs %}
+                <td>{{ tv.warranty }}</td>
+                {% endfor %}
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

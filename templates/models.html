@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ brand }} TVs - Sonovision</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SONOVISION
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/brands">Brands</a>
+        <a href="/compare">Compare</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>{{ brand }} TV Models</h1>
+
+    <p class="subtitle">
+        Select a model to view price and features.
+    </p>
+
+
+    <div class="model-grid">
+
+        {% for tv in tvs %}
+
+        <div class="tv-card">
+
+            <div class="tv-image">
+                📺
+            </div>
+
+            <h2>{{ tv.model }}</h2>
+
+            <div class="price">
+                ₹{{ "{:,}".format(tv.price) }}
+            </div>
+
+            <p>
+                <b>Screen:</b> {{ tv.size }}
+            </p>
+
+            <p>
+                <b>Resolution:</b> {{ tv.resolution }}
+            </p>
+
+            <p>
+                <b>Display:</b> {{ tv.display }}
+            </p>
+
+            <p>
+                <b>Refresh Rate:</b> {{ tv.refresh_rate }}
+            </p>
+
+            <a href="/tv/{{ tv.id }}"
+               class="btn">
+                View Details
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

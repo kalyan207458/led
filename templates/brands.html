@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>TV Brands - Sonovision</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SONOVISION
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/brands">Brands</a>
+        <a href="/compare">Compare</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Select Your TV Brand</h1>
+
+    <p class="subtitle">
+        Choose a brand to view available models.
+    </p>
+
+
+    <div class="brand-grid">
+
+        {% for brand in brands %}
+
+        <a href="/models/{{ brand }}"
+           class="brand-card">
+
+            <div class="brand-logo">
+                {{ brand[0] }}
+            </div>
+
+            <h2>{{ brand }}</h2>
+
+            <p>
+                View {{ brand }} TVs
+            </p>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

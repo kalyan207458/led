@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{{ tv.model }} - Sonovision</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        SONOVISION
+    </div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/brands">Brands</a>
+        <a href="/compare">Compare</a>
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="details-card">
+
+        <div class="details-header">
+
+            <div class="big-tv">
+                📺
+            </div>
+
+            <div>
+
+                <h1>{{ tv.model }}</h1>
+
+                <h2 class="price">
+                    ₹{{ "{:,}".format(tv.price) }}
+                </h2>
+
+
+                <p>
+                    {{ tv.brand }} Smart TV
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h2 class="section-title">
+            TV Features
+        </h2>
+
+
+        <table>
+
+            <tr>
+                <th>Feature</th>
+                <th>Specification</th>
+            </tr>
+
+            <tr>
+                <td>Brand</td>
+                <td>{{ tv.brand }}</td>
+            </tr>
+
+            <tr>
+                <td>Model</td>
+                <td>{{ tv.model }}</td>
+            </tr>
+
+            <tr>
+                <td>Price</td>
+                <td>₹{{ "{:,}".format(tv.price) }}</td>
+            </tr>
+           <tr>
+                <td>leastprice</td>
+                <td>₹{{ "{:,}".format(tv.leastprice) }}</td>
+            </tr>
+
+            <tr>
+                <td>Screen Size</td>
+                <td>{{ tv.size }}</td>
+            </tr>
+
+            <tr>
+                <td>Resolution</td>
+                <td>{{ tv.resolution }}</td>
+            </tr>
+
+            <tr>
+                <td>Display Type</td>
+                <td>{{ tv.display }}</td>
+            </tr>
+
+            <tr>
+                <td>Refresh Rate</td>
+                <td>{{ tv.refresh_rate }}</td>
+            </tr>
+
+            <tr>
+                <td>Processor</td>
+                <td>{{ tv.processor }}</td>
+            </tr>
+
+            <tr>
+                <td>HDR</td>
+                <td>{{ tv.hdr }}</td>
+            </tr>
+
+            <tr>
+                <td>Sound Output</td>
+                <td>{{ tv.sound }}</td>
+            </tr>
+
+            <tr>
+                <td>Smart TV Platform</td>
+                <td>{{ tv.smart_tv }}</td>
+            </tr>
+
+            <tr>
+                <td>Dolby</td>
+                <td>{{ tv.dolby }}</td>
+            </tr>
+
+            <tr>
+                <td>HDMI Ports</td>
+                <td>{{ tv.hdmi }}</td>
+            </tr>
+
+            <tr>
+                <td>USB Ports</td>
+                <td>{{ tv.usb }}</td>
+            </tr>
+
+            <tr>
+                <td>Wi-Fi</td>
+                <td>{{ tv.wifi }}</td>
+            </tr>
+
+            <tr>
+                <td>Bluetooth</td>
+                <td>{{ tv.bluetooth }}</td>
+            </tr>
+
+            <tr>
+                <td>Warranty</td>
+                <td>{{ tv.warranty }}</td>
+            </tr>
+
+        </table>
+
+
+        <br>
+
+        <a href="/compare"
+           class="btn">
+            Compare TVs
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
